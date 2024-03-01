@@ -16,7 +16,6 @@ return new class extends Migration
             $table->dateTime('appointment_time');
             $table->string('title');
             $table->foreignId('doctor_id');
-            $table->foreignId('date_id');
             $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });

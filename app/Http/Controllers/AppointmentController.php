@@ -28,7 +28,6 @@ class AppointmentController extends Controller
             'appointment_time' => 'date',
             'title' => 'string',
             'doctor_id' => 'exists:doctors,id',
-            'date_id' => 'exists:dates,id',
             'user_id' => 'nullable|exists:users,id',
         ]);
         if ($validator->fails()) {    
