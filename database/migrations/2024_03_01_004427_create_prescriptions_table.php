@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id');
             $table->foreignId('medicine_id');
-            $table->number('quantity');
-            $table->number('remaining');
+            $table->integer('quantity');
+            $table->integer('remaining');
             $table->timestamps();
         });
     }

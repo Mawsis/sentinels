@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('users', UserController::class);
+Route::resource('patients', PatientController::class);
+Route::resource('prescriptions', PrescriptionController::class);
+// This route is to fill the database with all medicines
+Route::get('/fill',[MedicineController::class,'fill']);

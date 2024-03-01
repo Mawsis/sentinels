@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('dci');
             $table->string('brand');
             $table->string('dosage');
-            $table->number('cond');
+            $table->integer('cond');
             $table->timestamps();
         });
     }
