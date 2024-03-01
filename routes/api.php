@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DoseController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
@@ -18,8 +21,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// This route is to fill the database with all medicines
+Route::get('/fill',[MedicineController::class,'fill']);
+//This route is to check taken doses
+Route::put('/doses/{dose}/check',[DoseController::class,'check']);
+//This route is to filter by name medicines
+Route::get('/medicines/filter/{string}',[MedicineController::class,'filter']);
+//This route is to get daily doses
+Route::get('/doses/today',[DoseController::class,'today']);
+//
+Route::get('/appointments/closest',[AppointmentController::class,'closest']);
+//
+Route::get('/doses/missed',[DoseController::class,'missed']);
+//
+Route::get('appointments/month',[AppointmentController::class,'month']);
+
+Route::get('doses/month',[AppointmentController::class,'month']);
+
+Route::get('/medicines/patient/{patient}',[MedicineController::class,'patient']);
+
 Route::resource('users', UserController::class);
 Route::resource('patients', PatientController::class);
 Route::resource('prescriptions', PrescriptionController::class);
-// This route is to fill the database with all medicines
-Route::get('/fill',[MedicineController::class,'fill']);
+Route::resource('doctors', DoctorController::class);
+Route::resource('appointments', AppointmentController::class);

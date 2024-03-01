@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('doses', function (Blueprint $table) {
             $table->id();
             $table->boolean('validated')->default(false);
-            $table->foreignId('date_id');
+            $table->dateTime('date');
             $table->foreignId('prescription_id');
             $table->timestamps();
         });

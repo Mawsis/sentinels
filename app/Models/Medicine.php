@@ -12,4 +12,9 @@ class Medicine extends Model
     {
         return $this->hasMany(Prescription::class);
     }
+    public function scopeFilterByName($query, $string)
+    {
+        return $query->where('dci', 'like', '%'.$string.'%')
+                    ->where('brand', 'like', '%'.$string.'%');
+    }
 }
