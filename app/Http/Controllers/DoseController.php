@@ -17,7 +17,9 @@ class DoseController extends Controller
     }
     public function today()
     {
-        return Dose::whereDate('date',Carbon::today())->get();
+        return Dose::with('prescription.medicine')
+        ->whereDate('date', Carbon::today())
+        ->get();
     }
     public function missed(){
         return Dose::where('validated',false)
