@@ -46,7 +46,7 @@ Route::post('/register',[UserAuthController::class,'register']);
 Route::post('/login',[UserAuthController::class,'login']);
 Route::post('/logout',[UserAuthController::class,'logout'])
         ->middleware('auth:sanctum');
-//All the routes below are REST routes for each Model
+//All the routes below are CRUD routes for each Model
 Route::resource('users', UserController::class);
 Route::resource('patients', PatientController::class);
 Route::resource('prescriptions', PrescriptionController::class);

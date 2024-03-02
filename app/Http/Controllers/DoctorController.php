@@ -11,7 +11,7 @@ class DoctorController extends Controller
 {
     public function index()
     {
-        return Doctor::all();
+        return Doctor::orderBy('id', 'desc')->get();
     }
 
     public function store(Request $request)
