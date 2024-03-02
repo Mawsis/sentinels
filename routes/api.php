@@ -30,21 +30,23 @@ Route::put('/doses/{dose}/check',[DoseController::class,'check']);
 Route::get('/medicines/filter/{string}',[MedicineController::class,'filter']);
 //This route is to get daily doses
 Route::get('/doses/today',[DoseController::class,'today']);
-//
+//This route is to get the closest appointment
 Route::get('/appointments/closest',[AppointmentController::class,'closest']);
-//
+//this route is to get the missed Doses
 Route::get('/doses/missed',[DoseController::class,'missed']);
-//
+//this route is to get all appointment of this month
 Route::get('appointments/month',[AppointmentController::class,'month']);
-
+//this route is to get all doses this month
 Route::get('doses/month',[AppointmentController::class,'month']);
-
+//this route is to get all the medicines of a patient
 Route::get('/medicines/patient/{patient}',[MedicineController::class,'patient']);
+
 
 Route::post('/register',[UserAuthController::class,'register']);
 Route::post('/login',[UserAuthController::class,'login']);
 Route::post('/logout',[UserAuthController::class,'logout'])
         ->middleware('auth:sanctum');
+//All the routes below are REST routes for each Model
 Route::resource('users', UserController::class);
 Route::resource('patients', PatientController::class);
 Route::resource('prescriptions', PrescriptionController::class);

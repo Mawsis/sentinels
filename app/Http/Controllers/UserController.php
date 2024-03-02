@@ -33,4 +33,14 @@ class UserController extends Controller
         $user->delete();
         return response()->json(null, 204);
     }
+    public function user($token)
+    {
+        $user = User::where('api_token', $token)->first();
+
+        if (!$user) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+
+        return response()->json($user);
+    }
 }

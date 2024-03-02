@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome',[
-        'users' => User::all()
-    ]);
+    return "There is nothing here";
 });
+Route::get('/login', function(){
+    return request()->json(400,['error'=>'Not Authenticated']);
+})->name('login');
+
+
